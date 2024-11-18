@@ -39,7 +39,7 @@ Ce projet est une application web permettant de calculer les informations import
 
 ## Auteur
 
-Créé par **[Votre Nom ou Pseudonyme]**.
+Créé par **ethan_frq**.
 
 ## Licence
 
