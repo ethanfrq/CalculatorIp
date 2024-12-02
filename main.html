@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur Avancé de Sous-Réseaux IPv4</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Calculateur Avancé de Sous-Réseaux IPv4</h1>
+    </header>
+    <main>
+        <section class="form-section">
+            <form id="subnetForm">
+                <label for="inputMode">Mode de saisie :</label>
+                <select id="inputMode">
+                    <option value="cidr">IP + CIDR</option>
+                    <option value="mask">IP + Masque de sous-réseau</option>
+                </select>
+
+                <label for="ip">Adresse IP :</label>
+                <input type="text" id="ip" name="ip" placeholder="Ex : 192.168.1.0" required>
+
+                <div id="cidrInput">
+                    <label for="cidr">CIDR (Préfixe) :</label>
+                    <input type="number" id="cidr" name="cidr" min="0" max="32" placeholder="Ex : 24">
+                </div>
+
+                <div id="maskInput" class="hidden">
+                    <label for="mask">Masque de sous-réseau :</label>
+                    <input type="text" id="mask" name="mask" placeholder="Ex : 255.255.255.0">
+                </div>
+
+                <label>
+                    <input type="checkbox" id="showIPs"> Afficher toutes les IP possibles
+                </label>
+
+                <button type="submit">Calculer</button>
+            </form>
+        </section>
+        <section id="resultSection" class="hidden">
+            <h2>Résultats</h2>
+            <table>
+                <tr>
+                    <th>Paramètre</th>
+                    <th>Valeur</th>
+                </tr>
+                <tr>
+                    <td>Adresse IP</td>
+                    <td id="ipValue"></td>
+                </tr>
+                <tr>
+                    <td>Masque de sous-réseau</td>
+                    <td id="subnetMask"></td>
+                </tr>
+                <tr>
+                    <td>Masque (binaire)</td>
+                    <td id="binaryMask"></td>
+                </tr>
+                <tr>
+                    <td>Adresse réseau</td>
+                    <td id="networkAddress"></td>
+                </tr>
+                <tr>
+                    <td>Adresse de diffusion</td>
+                    <td id="broadcastAddress"></td>
+                </tr>
+                <tr>
+                    <td>Plage utilisable</td>
+                    <td id="usableRange"></td>
+                </tr>
+                <tr>
+                    <td>Nombre total d'hôtes</td>
+                    <td id="totalHosts"></td>
+                </tr>
+                <tr>
+                    <td>Hôtes utilisables</td>
+                    <td id="usableHosts"></td>
+                </tr>
+                <tr>
+                    <td>Classe de l'adresse IP</td>
+                    <td id="ipClass"></td>
+                </tr>
+                <tr>
+                    <td>Passerelle par défaut</td>
+                    <td id="defaultGateway"></td>
+                </tr>
+                <tr>
+                    <td>Nombre de bits de sous-réseau</td>
+                    <td id="subnetBits"></td>
+                </tr>
+                <tr>
+                    <td>Nombre de sous-réseaux créés</td>
+                    <td id="numberOfSubnets"></td>
+                </tr>
+                <tr>
+                    <td>Nombre de bits d’hôte par sous-réseau</td>
+                    <td id="hostBits"></td>
+                </tr>
+                <tr>
+                    <td>Adresse réseau (binaire)</td>
+                    <td id="networkAddressBin"></td>
+                </tr>
+                <tr>
+                    <td>Adresse de diffusion (binaire)</td>
+                    <td id="broadcastAddressBin"></td>
+                </tr>
+            </table>
+            <div id="ipListSection" class="hidden">
+                <h3>IP possibles</h3>
+                <ul id="ipList"></ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 - Calculateur Avancé de Sous-Réseaux IPv4</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
